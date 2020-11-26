@@ -12,7 +12,7 @@ export interface File {
     width: number;
 }
 
-export interface Entry {
+export interface Artboard {
     files: File[];
     isArtboard: boolean;
     name: string;
@@ -23,7 +23,7 @@ export interface DocumentResponse {
     version: {
         document: {
             artboards: {
-                entries: Entry[];
+                entries: Artboard[];
             };
             name: string;
         };
