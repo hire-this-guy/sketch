@@ -1,29 +1,31 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+} from "react-router-dom";
 import Document from "./components/document";
-import { getDocument } from "./services/query";
+import { config } from "./services/config";
 
 function App() {
-    getDocument("Y8wDM");
     return (
-        <div className="App">
-            <Document />
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <Router>
+            <Switch>
+                <Route exact path="/:docId" children={<Document />} />
+                <Route
+                    exact
+                    path="/:docId/:artboardId"
+                    render={() => <h1>artboard</h1>}
+                />
+                <Route
+                    render={() => (
+                        <Redirect from="/" to={`/${config.defaultDocId}`} />
+                    )}
+                />
+            </Switch>
+        </Router>
     );
 }
 
