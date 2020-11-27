@@ -1,7 +1,13 @@
-import { Artboard } from "../../types/response";
+import { DocumentResponse } from "../../types/response";
+import { useParams } from "react-router-dom";
 
-function Artboard(props: { artboard: Artboard }) {
-    return <h1>Artboard: {props.artboard.name}</h1>;
+interface ArtboardDisplayProps {
+    data: DocumentResponse | null;
 }
 
-export default Artboard;
+function ArtboardView(props: ArtboardDisplayProps) {
+    let { artboardName } = useParams<{ artboardName: string }>();
+    return <h1>Artboard: {artboardName}</h1>;
+}
+
+export default ArtboardView;

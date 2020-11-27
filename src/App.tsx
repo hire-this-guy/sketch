@@ -9,6 +9,7 @@ import {
 import Document from "./components/document";
 import { config } from "./services/config";
 import { DataConsumer, DataProvider } from "./components/DataProvider";
+import ArtboardView from "./components/Artboard/Artboard";
 
 function App() {
     return (
@@ -24,11 +25,11 @@ function App() {
                             </DataConsumer>
                         }
                     />
-                    <Route
-                        exact
-                        path="/:docId/:artboardId"
-                        render={() => <h1>artboard</h1>}
-                    />
+                    <Route exact path="/:docId/:artboardName">
+                        <DataConsumer>
+                            {(data) => <ArtboardView data={data} />}
+                        </DataConsumer>
+                    </Route>
                     <Route
                         render={() => (
                             <Redirect from="/" to={`/${config.defaultDocId}`} />
