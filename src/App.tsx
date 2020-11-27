@@ -16,15 +16,11 @@ function App() {
         <Router>
             <DataProvider>
                 <Switch>
-                    <Route
-                        exact
-                        path="/:docId"
-                        children={
-                            <DataConsumer>
-                                {(data) => <Document data={data} />}
-                            </DataConsumer>
-                        }
-                    />
+                    <Route exact path="/:docId">
+                        <DataConsumer>
+                            {(data) => <Document data={data} />}
+                        </DataConsumer>
+                    </Route>
                     <Route exact path="/:docId/:artboardName">
                         <DataConsumer>
                             {(data) => <ArtboardView data={data} />}
