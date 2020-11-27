@@ -1,25 +1,23 @@
-import { useEffect, useState } from "react";
-import { getDocument } from "../services/query";
-import { useParams } from "react-router-dom";
+import Thumbnail from "./Thumbnail/thumbnail";
+import { DocumentResponse } from "../types/response";
 
-function Document() {
-    const [data, setData] = useState<string | null>(null);
-    let { docId } = useParams<{ docId: string }>();
+interface DocumentProps {
+    data: DocumentResponse | null;
+}
 
-    useEffect(() => {
-        (async () => {
-            const response = await getDocument(docId);
-            setData(JSON.stringify(response));
-            console.log("setting title", response);
-            document.title = response.version.document.name;
-        })();
-    });
+function Document(props: DocumentProps) {
+    const thumbnails =
+        props.data !== null ? (
+            props.data.version.document.artboards.entries.map(
+                (artboard, index) => {
+                    return <Thumbnail artboard={artboard} key={index} />;
+                }
+            )
+        ) : (
+            <div />
+        );
 
-    return !data ? (
-        <h1>loading</h1>
-    ) : (
-        <pre>{JSON.stringify(data, null, 4)}</pre>
-    );
+    return <>{!props.data ? <h1>loading</h1> : thumbnails}</>;
 }
 
 export default Document;

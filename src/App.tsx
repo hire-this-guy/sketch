@@ -8,23 +8,34 @@ import {
 } from "react-router-dom";
 import Document from "./components/document";
 import { config } from "./services/config";
+import { DataConsumer, DataProvider } from "./components/DataProvider";
 
 function App() {
     return (
         <Router>
-            <Switch>
-                <Route exact path="/:docId" children={<Document />} />
-                <Route
-                    exact
-                    path="/:docId/:artboardId"
-                    render={() => <h1>artboard</h1>}
-                />
-                <Route
-                    render={() => (
-                        <Redirect from="/" to={`/${config.defaultDocId}`} />
-                    )}
-                />
-            </Switch>
+            <DataProvider>
+                <Switch>
+                    <Route
+                        exact
+                        path="/:docId"
+                        children={
+                            <DataConsumer>
+                                {(data) => <Document data={data} />}
+                            </DataConsumer>
+                        }
+                    />
+                    <Route
+                        exact
+                        path="/:docId/:artboardId"
+                        render={() => <h1>artboard</h1>}
+                    />
+                    <Route
+                        render={() => (
+                            <Redirect from="/" to={`/${config.defaultDocId}`} />
+                        )}
+                    />
+                </Switch>
+            </DataProvider>
         </Router>
     );
 }
