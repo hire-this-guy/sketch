@@ -6,7 +6,7 @@ function Thumbnail(props: { artboard: Artboard; key: number }) {
     return (
         <figure key={props.key}>
             <img
-                srcSet={`${props.artboard.files[0].url}, ${props.artboard.files[1].url}`}
+                srcSet={`${props.artboard.files[0].url} 1x, ${props.artboard.files[1].url} 2x`}
                 alt={props.artboard.name}
             />
             <figcaption>{props.artboard.name}</figcaption>
