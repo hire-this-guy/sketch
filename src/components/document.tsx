@@ -1,5 +1,6 @@
 import Thumbnail from "./Thumbnail/thumbnail";
 import { DocumentResponse } from "../types/response";
+import TopBar from "./TopBar/TopBar";
 
 interface DocumentProps {
     data: DocumentResponse;
@@ -17,7 +18,12 @@ function Document(props: DocumentProps) {
             <div />
         );
 
-    return <>{thumbnails}</>;
+    return (
+        <>
+            <TopBar middle={props.data.version.document.name}></TopBar>
+            {thumbnails}
+        </>
+    );
 }
 
 export default Document;

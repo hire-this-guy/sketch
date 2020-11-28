@@ -1,6 +1,7 @@
 import { Artboard, DocumentResponse } from "../../types/response";
 import { useParams } from "react-router-dom";
 import React from "react";
+import TopBar from "../TopBar/TopBar";
 
 interface ArtboardDisplayProps {
     data: DocumentResponse;
@@ -15,10 +16,9 @@ function ArtboardView(props: ArtboardDisplayProps) {
             return artboard.name === artboardName;
         }
     )[0];
-    console.log("images", currentArtboard.files[0]);
     return (
         <>
-            <h1>Artboard: {artboardName}</h1>
+            <TopBar middle={artboardName}></TopBar>
             {currentArtboard && (
                 <img
                     srcSet={`${currentArtboard.files[0].url}, ${currentArtboard.files[1].url} 2x`}

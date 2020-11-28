@@ -1,3 +1,19 @@
-.pre {
-    white-space: pre-line;
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Palette */
+    --p-white: #fff;
+    --p-alabaster: #f7f7f7;
+    --p-black: #000;
+
+    /* Normal colors */
+    --topBarBg: var(--p-white);
+    --topBarTxt: var(--p-black);
+    --mainBg: var(--p-alabaster);
+}
+
+body {
+    background: var(--mainBg);
 }
