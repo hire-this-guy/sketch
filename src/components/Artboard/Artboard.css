@@ -1,0 +1,16 @@
+.artboard {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    padding: calc(var(--s-artboard-padding) + var(--s-topbar-height))
+        var(--s-artboard-padding) var(--s-artboard-padding);
+}
+
+.artboard__img {
+    display: flex;
+    max-height: 100%;
+    max-width: 100%;
+    align-self: center;
+    height: unset;
+    width: unset;
+}

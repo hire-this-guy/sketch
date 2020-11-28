@@ -12,6 +12,10 @@
     --topBarBg: var(--p-white);
     --topBarTxt: var(--p-black);
     --mainBg: var(--p-alabaster);
+
+    /* Sizes */
+    --s-topbar-height: 64px;
+    --s-artboard-padding: 48px;
 }
 
 body {
