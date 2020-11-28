@@ -10,7 +10,7 @@ import Document from "./components/document";
 import { config } from "./services/config";
 import { DataConsumer, DataProvider } from "./components/DataProvider";
 import ArtboardView from "./components/Artboard/Artboard";
-import Loading from "./components/Thumbnail/Loading";
+import Loading from "./components/Loading/Loading";
 
 function App() {
     return (
