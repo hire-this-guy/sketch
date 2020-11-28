@@ -5,14 +5,25 @@
     width: 100%;
     height: var(--s-topbar-height);
 
-    display: flex;
-    justify-content: space-evenly;
-
     background: #fff;
     color: #000;
     font-size: 16px;
-    padding: 24px;
+    line-height: 24px;
+    padding: 20px 16px 0;
 
     box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px 0px,
         rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    align-content: space-around;
+}
+
+.top-bar__left {
+    grid-area: 1 / 1 / 2 / 2;
+}
+.top-bar__middle {
+    grid-area: 1 / 2 / 2 / 3;
+    text-align: center;
 }

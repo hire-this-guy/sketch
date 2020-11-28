@@ -2,6 +2,7 @@ import Thumbnail from "../Thumbnail/Thumbnail";
 import { DocumentResponse } from "../../types/response";
 import TopBar from "../TopBar/TopBar";
 import "./DocumentView.css";
+import Logo from "../../assets/sketch-logo.svg";
 
 interface DocumentProps {
     data: DocumentResponse;
@@ -21,7 +22,10 @@ function DocumentView(props: DocumentProps) {
 
     return (
         <div className="document-view">
-            <TopBar middle={props.data.version.document.name}></TopBar>
+            <TopBar
+                left={<img src={Logo} alt="" />}
+                middle={props.data.version.document.name}
+            />
             {thumbnails}
         </div>
     );
