@@ -1,13 +1,24 @@
-figure {
+/* TODO responsive sizes */
+.thumbnail {
+    --s-thumb-height: 305px;
+    --s-thumb-width: 240px;
+
     display: inline-flex;
     flex-direction: column;
-    width: 100px;
-    height: 100px;
-    margin: 20px;
-    border: 1px solid;
 }
-img {
+.thumbnail__figure {
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.65);
+}
+.thumbnail__img {
     object-fit: contain;
-    width: 100%;
-    height: 100%;
+    height: var(--s-thumb-height);
+    width: var(--s-thumb-width);
+}
+/* TODO support longer artboard names */
+.thumbnail__caption {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
 }

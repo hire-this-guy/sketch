@@ -22,3 +22,8 @@
 body {
     background: var(--mainBg);
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

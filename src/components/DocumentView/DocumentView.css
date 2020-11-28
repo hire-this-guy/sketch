@@ -1,4 +1,9 @@
 .document-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
     padding: calc(var(--s-spacing-small) + var(--s-topbar-height))
         var(--s-spacing-small) var(--s-spacing-small);
 }
