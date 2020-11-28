@@ -25,7 +25,7 @@ function ArtboardView(props: ArtboardDisplayProps) {
             ? artboards[currentArtboardNumber - 1].name
             : null;
     const nextArtboardName =
-        currentArtboardNumber < allArtboardsNumber
+        currentArtboardNumber < allArtboardsNumber - 1
             ? artboards[currentArtboardNumber + 1].name
             : null;
 
@@ -40,7 +40,7 @@ function ArtboardView(props: ArtboardDisplayProps) {
                                 prev
                             </Link>
                         )}
-                        {currentArtboardNumber}/{allArtboardsNumber}
+                        {currentArtboardNumber + 1}/{allArtboardsNumber}
                         {nextArtboardName && (
                             <Link to={`/${docId}/${nextArtboardName}`}>
                                 next
