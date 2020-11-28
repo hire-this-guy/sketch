@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DocumentResponse } from "../types/response";
-import { useParams, useRouteMatch, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { getDocument } from "../services/query";
 
 const { Provider, Consumer } = React.createContext<DocumentResponse | null>(
@@ -20,6 +20,9 @@ function DataProvider(props: { children: React.ReactNode }) {
 
     useEffect(() => {
         (async () => {
+            if (getDocId().length === 0) {
+                return;
+            }
             const response = await getDocument(getDocId());
             setData(response);
             // TODO should it be here?
