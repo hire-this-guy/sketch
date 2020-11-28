@@ -36,9 +36,11 @@ const getQuery = (shortId: string): string => gql`{
 export const getDocument = async (
     shortId: string
 ): Promise<DocumentResponse> => {
+    if (typeof shortId === "undefined") {
+        throw new Error("getDocument called without id");
+    }
     const response = await client.request<{ share: DocumentResponse }>(
         getQuery(shortId)
     );
-    console.log("response", response);
     return response.share;
 };
