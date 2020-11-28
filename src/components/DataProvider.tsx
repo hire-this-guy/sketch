@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { DocumentResponse } from "../types/response";
 import { useParams, useLocation } from "react-router-dom";
 import { getDocument } from "../services/query";
@@ -12,23 +12,29 @@ function DataProvider(props: { children: React.ReactNode }) {
 
     let { docId } = useParams<{ docId: string }>();
     let location = useLocation();
+    const prevDocId = useRef<string>("");
 
-    const getDocId = (): string => {
+    const getDocId = useCallback((): string => {
         // This is a hack/workaround. Use params does not seem to be updated so we take id from location
         return docId ?? location.pathname.split("/")[1];
-    };
+    }, [docId, location]);
 
     useEffect(() => {
         (async () => {
-            if (getDocId().length === 0) {
+            const docIdCandidate = getDocId();
+            if (
+                docIdCandidate.length === 0 ||
+                docIdCandidate === prevDocId.current
+            ) {
                 return;
             }
+            prevDocId.current = docIdCandidate;
             const response = await getDocument(getDocId());
             setData(response);
             // TODO should it be here?
             document.title = response.version.document.name;
         })();
-    }, [docId, location]);
+    }, [getDocId]);
 
     return <Provider value={data}>{props.children}</Provider>;
 }
