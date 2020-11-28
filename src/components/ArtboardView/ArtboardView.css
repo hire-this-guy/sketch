@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     height: 100vh;
-    padding: calc(var(--s-artboard-padding) + var(--s-topbar-height))
-        var(--s-artboard-padding) var(--s-artboard-padding);
+    padding: calc(var(--s-spacing-big) + var(--s-topbar-height))
+        var(--s-spacing-big) var(--s-spacing-big);
 }
 
 .artboard__img {

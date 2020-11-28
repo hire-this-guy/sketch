@@ -2,7 +2,7 @@ import { DocumentResponse } from "../../types/response";
 import { Link, useParams } from "react-router-dom";
 import React from "react";
 import TopBar from "../TopBar/TopBar";
-import "./Artboard.css";
+import "./ArtboardView.css";
 
 interface ArtboardDisplayProps {
     data: DocumentResponse;

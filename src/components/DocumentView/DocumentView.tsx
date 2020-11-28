@@ -1,12 +1,12 @@
-import Thumbnail from "./Thumbnail/thumbnail";
-import { DocumentResponse } from "../types/response";
-import TopBar from "./TopBar/TopBar";
+import Thumbnail from "../Thumbnail/thumbnail";
+import { DocumentResponse } from "../../types/response";
+import TopBar from "../TopBar/TopBar";
 
 interface DocumentProps {
     data: DocumentResponse;
 }
 
-function Document(props: DocumentProps) {
+function DocumentView(props: DocumentProps) {
     const thumbnails =
         props.data !== null ? (
             props.data.version.document.artboards.entries.map(
@@ -26,4 +26,4 @@ function Document(props: DocumentProps) {
     );
 }
 
-export default Document;
+export default DocumentView;

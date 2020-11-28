@@ -6,10 +6,10 @@ import {
     Route,
     Redirect,
 } from "react-router-dom";
-import Document from "./components/document";
+import DocumentView from "./components/DocumentView/DocumentView";
 import { config } from "./services/config";
 import { DataConsumer, DataProvider } from "./components/DataProvider";
-import ArtboardView from "./components/Artboard/Artboard";
+import ArtboardView from "./components/ArtboardView/ArtboardView";
 import Loading from "./components/Loading/Loading";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
                                 data === null ? (
                                     <Loading />
                                 ) : (
-                                    <Document data={data} />
+                                    <DocumentView data={data} />
                                 )
                             }
                         </DataConsumer>
