@@ -1,6 +1,6 @@
 import { Artboard } from "../../types/response";
 import React from "react";
-import "./thumbnail.css";
+import "./Thumbnail.css";
 import { Link, useRouteMatch } from "react-router-dom";
 
 function Thumbnail(props: { artboard: Artboard; key: number }) {

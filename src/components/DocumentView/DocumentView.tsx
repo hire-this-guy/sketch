@@ -1,4 +1,4 @@
-import Thumbnail from "../Thumbnail/thumbnail";
+import Thumbnail from "../Thumbnail/Thumbnail";
 import { DocumentResponse } from "../../types/response";
 import TopBar from "../TopBar/TopBar";
 import "./DocumentView.css";
