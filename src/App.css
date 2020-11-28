@@ -15,7 +15,8 @@
 
     /* Sizes */
     --s-topbar-height: 64px;
-    --s-artboard-padding: 48px;
+    --s-spacing-big: 48px;
+    --s-spacing-small: 24px;
 }
 
 body {

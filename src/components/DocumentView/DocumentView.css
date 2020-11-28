@@ -1,0 +1,4 @@
+.document-view {
+    padding: calc(var(--s-spacing-small) + var(--s-topbar-height))
+        var(--s-spacing-small) var(--s-spacing-small);
+}

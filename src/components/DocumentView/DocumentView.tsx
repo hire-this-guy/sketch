@@ -1,6 +1,7 @@
 import Thumbnail from "../Thumbnail/thumbnail";
 import { DocumentResponse } from "../../types/response";
 import TopBar from "../TopBar/TopBar";
+import "./DocumentView.css";
 
 interface DocumentProps {
     data: DocumentResponse;
@@ -19,10 +20,10 @@ function DocumentView(props: DocumentProps) {
         );
 
     return (
-        <>
+        <div className="document-view">
             <TopBar middle={props.data.version.document.name}></TopBar>
             {thumbnails}
-        </>
+        </div>
     );
 }
 
