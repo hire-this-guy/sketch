@@ -10,6 +10,7 @@ import Document from "./components/document";
 import { config } from "./services/config";
 import { DataConsumer, DataProvider } from "./components/DataProvider";
 import ArtboardView from "./components/Artboard/Artboard";
+import Loading from "./components/Thumbnail/Loading";
 
 function App() {
     return (
@@ -18,12 +19,24 @@ function App() {
                 <Switch>
                     <Route exact path="/:docId">
                         <DataConsumer>
-                            {(data) => <Document data={data} />}
+                            {(data) =>
+                                data === null ? (
+                                    <Loading />
+                                ) : (
+                                    <Document data={data} />
+                                )
+                            }
                         </DataConsumer>
                     </Route>
                     <Route exact path="/:docId/:artboardName">
                         <DataConsumer>
-                            {(data) => <ArtboardView data={data} />}
+                            {(data) =>
+                                data === null ? (
+                                    <Loading />
+                                ) : (
+                                    <ArtboardView data={data} />
+                                )
+                            }
                         </DataConsumer>
                     </Route>
                     <Route

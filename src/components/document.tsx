@@ -2,7 +2,7 @@ import Thumbnail from "./Thumbnail/thumbnail";
 import { DocumentResponse } from "../types/response";
 
 interface DocumentProps {
-    data: DocumentResponse | null;
+    data: DocumentResponse;
 }
 
 function Document(props: DocumentProps) {
@@ -17,7 +17,7 @@ function Document(props: DocumentProps) {
             <div />
         );
 
-    return <>{!props.data ? <h1>loading</h1> : thumbnails}</>;
+    return <>{thumbnails}</>;
 }
 
 export default Document;
