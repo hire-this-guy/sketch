@@ -14,3 +14,34 @@
     height: unset;
     width: unset;
 }
+
+.close {
+    display: flex;
+    line-height: 0;
+}
+.close-icon {
+    margin: 26px 24px 27px 29px;
+}
+
+.artboards-switcher {
+    padding-top: 2px;
+    color: rgba(0, 0, 0, 0.4);
+}
+.artboard-switcher__next {
+    margin-left: 18px;
+    margin-right: 12px;
+}
+.artboard-switcher__prev {
+    margin-right: 18px;
+    margin-left: 12px;
+}
+
+.artboard-switcher__next,
+.artboard-switcher__prev {
+    position: relative;
+    top: 1px;
+}
+
+.artboard-switcher__slash {
+    margin: 0 0.5em;
+}

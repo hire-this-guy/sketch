@@ -3,6 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import React from "react";
 import TopBar from "../TopBar/TopBar";
 import "./ArtboardView.css";
+import Close from "../../assets/close.svg";
+import ArrowLeft from "../../assets/arrow-left.svg";
+import ArrowRight from "../../assets/arrow-right.svg";
 
 interface ArtboardDisplayProps {
     data: DocumentResponse;
@@ -21,7 +24,7 @@ function ArtboardView(props: ArtboardDisplayProps) {
     const currentArtboardNumber = artboards.indexOf(currentArtboard);
     const allArtboardsNumber = artboards.length;
     const prevArtboardName =
-        currentArtboardNumber > 1
+        currentArtboardNumber > 0
             ? artboards[currentArtboardNumber - 1].name
             : null;
     const nextArtboardName =
@@ -32,19 +35,53 @@ function ArtboardView(props: ArtboardDisplayProps) {
     return (
         <div className="artboard">
             <TopBar
+                corner={
+                    <>
+                        <span className="close">
+                            <Link to={`/${docId}`}>
+                                <img
+                                    src={Close}
+                                    className="close-icon"
+                                    alt=""
+                                />
+                            </Link>
+                        </span>
+                    </>
+                }
                 left={
-                    <span>
-                        <Link to={`/${docId}`}>x</Link>|
-                        {prevArtboardName && (
+                    <span className="artboards-switcher">
+                        {prevArtboardName ? (
                             <Link to={`/${docId}/${prevArtboardName}`}>
-                                prev
+                                <img
+                                    src={ArrowLeft}
+                                    alt=""
+                                    className="artboard-switcher__prev"
+                                />
                             </Link>
+                        ) : (
+                            <img
+                                src={ArrowLeft}
+                                className="artboard-switcher__prev disabled"
+                                alt=""
+                            />
                         )}
-                        {currentArtboardNumber + 1}/{allArtboardsNumber}
-                        {nextArtboardName && (
+                        {currentArtboardNumber + 1}
+                        <span className="artboard-switcher__slash">/</span>
+                        {allArtboardsNumber}
+                        {nextArtboardName ? (
                             <Link to={`/${docId}/${nextArtboardName}`}>
-                                next
+                                <img
+                                    src={ArrowRight}
+                                    alt=""
+                                    className="artboard-switcher__next"
+                                />
                             </Link>
+                        ) : (
+                            <img
+                                src={ArrowRight}
+                                className="artboard-switcher__next disabled"
+                                alt=""
+                            />
                         )}
                     </span>
                 }

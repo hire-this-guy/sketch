@@ -1,29 +1,54 @@
 .top-bar {
+    --s-corner-width: 59px;
+
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: var(--s-topbar-height);
+    z-index: var(--z-overlay);
 
     background: #fff;
     color: #000;
     font-size: 16px;
     line-height: 24px;
-    padding: 20px 16px 0;
 
     box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px 0px,
         rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-columns: var(--s-corner-width) 2fr 1fr 2fr var(
+            --s-corner-width
+        );
+    grid-template-rows: var(--s-topbar-height);
     align-content: space-around;
 }
 
-.top-bar__left {
+.top-bar a {
+    user-select: none;
+}
+
+.top-bar__corner {
     grid-area: 1 / 1 / 2 / 2;
+    position: relative;
+}
+.top-bar__separator {
+    position: absolute;
+    left: var(--s-corner-width);
+    top: 25%;
+    height: 50%;
+    pointer-events: none;
+}
+.top-bar__left {
+    grid-area: 1 / 2 / 2 / 3;
+    padding-left: 20px;
 }
 .top-bar__middle {
-    grid-area: 1 / 2 / 2 / 3;
+    grid-area: 1 / 3 / 2 / 3;
     text-align: center;
+}
+
+.top-bar__left,
+.top-bar__middle {
+    padding-top: 20px;
 }

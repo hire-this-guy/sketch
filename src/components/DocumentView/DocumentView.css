@@ -7,3 +7,7 @@
     padding: calc(var(--s-spacing-small) + var(--s-topbar-height))
         var(--s-spacing-small) var(--s-spacing-small);
 }
+
+.logo {
+    margin: 19px 0 0 18px;
+}

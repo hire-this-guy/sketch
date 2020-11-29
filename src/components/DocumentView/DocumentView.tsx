@@ -3,6 +3,7 @@ import { DocumentResponse } from "../../types/response";
 import TopBar from "../TopBar/TopBar";
 import "./DocumentView.css";
 import Logo from "../../assets/sketch-logo.svg";
+import React from "react";
 
 interface DocumentProps {
     data: DocumentResponse;
@@ -23,8 +24,8 @@ function DocumentView(props: DocumentProps) {
     return (
         <div className="document-view">
             <TopBar
-                left={<img src={Logo} alt="" />}
-                middle={props.data.version.document.name}
+                corner={<img src={Logo} alt="" className="logo" />}
+                left={props.data.version.document.name}
             />
             {thumbnails}
         </div>
