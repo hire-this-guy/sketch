@@ -36,17 +36,11 @@ function ArtboardView(props: ArtboardDisplayProps) {
         <div className="artboard">
             <TopBar
                 corner={
-                    <>
-                        <span className="close">
-                            <Link to={`/${docId}`}>
-                                <img
-                                    src={Close}
-                                    className="close-icon"
-                                    alt=""
-                                />
-                            </Link>
-                        </span>
-                    </>
+                    <span className="close">
+                        <Link to={`/${docId}`}>
+                            <img src={Close} className="close-icon" alt="" />
+                        </Link>
+                    </span>
                 }
                 left={
                     <span className="artboards-switcher">
