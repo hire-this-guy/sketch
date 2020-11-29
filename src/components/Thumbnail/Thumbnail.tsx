@@ -7,14 +7,15 @@ import FadeInImg from "../FadeInImg/FadeInImg";
 function Thumbnail(props: { artboard: Artboard }) {
     let { url } = useRouteMatch();
 
+    let sources = props.artboard.files[0].thumbnails[0].url;
+    if (props.artboard.files[0].thumbnails[1]) {
+        sources += ` 1x, ${props.artboard.files[0].thumbnails[1].url}`;
+    }
+
     return (
         <Link to={`${url}/${props.artboard.name}`} className="thumbnail">
             <figure className="thumbnail__figure">
-                <FadeInImg
-                    srcSet={`${props.artboard.files[0].url} 1x, ${props.artboard.files[1].url} 2x`}
-                    alt=""
-                    className="thumbnail__img"
-                />
+                <FadeInImg srcSet={sources} alt="" className="thumbnail__img" />
                 <figcaption className="thumbnail__caption">
                     {props.artboard.name}
                 </figcaption>
