@@ -6,9 +6,9 @@ function FadeInImg(props: ImgHTMLAttributes<unknown>) {
         event.currentTarget.classList.add("is-loaded");
     };
 
-    // alt should be provided by users of the component
-    // eslint-disable-next-line jsx-a11y/alt-text
     return (
+        // alt should be provided by users of the component
+        // eslint-disable-next-line jsx-a11y/alt-text
         <img
             {...props}
             className={`image ${props?.className}`}
