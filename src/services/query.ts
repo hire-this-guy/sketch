@@ -4,43 +4,44 @@ import { DocumentResponse } from "../types/response";
 
 const client = new GraphQLClient(config.endpoint, { headers: {} });
 
-const getQuery = (shortId: string): string => gql`{
-  share(shortId: "${shortId}") {
-    shortId
-    version {
-      document {
-        name
-        artboards {
-          entries {
+const getQuery = (id: string): string => {
+    const isShortId = id.length < 36;
+    return gql`{
+      share(${isShortId ? "shortId" : "id"}: "${id}") {
+        ${isShortId ? "shortId" : "identifier"}
+        version {
+          document {
             name
-            isArtboard
-            files {
-              url
-              height
-              width
-              scale
-              thumbnails {
-                url
-                height
-                width
+            artboards {
+              entries {
+                name
+                isArtboard
+                files {
+                  url
+                  height
+                  width
+                  scale
+                  thumbnails {
+                    url
+                    height
+                    width
+                  }
+                }
               }
             }
           }
         }
       }
     }
-  }
-}
-`;
+    `;
+};
 
-export const getDocument = async (
-    shortId: string
-): Promise<DocumentResponse> => {
-    if (typeof shortId === "undefined") {
+export const getDocument = async (docId: string): Promise<DocumentResponse> => {
+    if (typeof docId === "undefined") {
         throw new Error("getDocument called without id");
     }
     const response = await client.request<{ share: DocumentResponse }>(
-        getQuery(shortId)
+        getQuery(docId)
     );
     return response.share;
 };
