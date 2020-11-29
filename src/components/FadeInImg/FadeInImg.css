@@ -1,0 +1,7 @@
+.image {
+    opacity: 0;
+    transition: opacity var(--t-transition-duration-long);
+}
+.image.is-loaded {
+    opacity: 1;
+}
