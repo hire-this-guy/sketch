@@ -20,6 +20,7 @@
 
     /* Times */
     --t-transition-duration: 0.1s;
+    --t-transition-duration-long: 0.2s;
 
     /* z-indexes */
     --z-overlay: 10;
