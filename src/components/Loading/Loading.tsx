@@ -1,5 +1,8 @@
+import React from "react";
+import "./Loading.css";
+
 function Loading() {
-    return <h1>Loading...</h1>;
+    return <div className="loader" />;
 }
 
 export default Loading;
