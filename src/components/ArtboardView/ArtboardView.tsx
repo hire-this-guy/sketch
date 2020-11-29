@@ -6,6 +6,7 @@ import "./ArtboardView.css";
 import Close from "../../assets/close.svg";
 import ArrowLeft from "../../assets/arrow-left.svg";
 import ArrowRight from "../../assets/arrow-right.svg";
+import FadeInImg from "../FadeInImg/FadeInImg";
 
 interface ArtboardDisplayProps {
     data: DocumentResponse;
@@ -82,9 +83,9 @@ function ArtboardView(props: ArtboardDisplayProps) {
                 middle={artboardName}
             />
             {currentArtboard && (
-                <img
+                <FadeInImg
                     className="artboard__img"
-                    srcSet={`${currentArtboard.files[0].url}, ${currentArtboard.files[1].url} 2x`}
+                    srcSet={`${currentArtboard.files[0].url} 1x, ${currentArtboard.files[1].url} 2x`}
                     alt={currentArtboard.name}
                 />
             )}
