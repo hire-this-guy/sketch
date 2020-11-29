@@ -10,16 +10,11 @@ interface DocumentProps {
 }
 
 function DocumentView(props: DocumentProps) {
-    const thumbnails =
-        props.data !== null ? (
-            props.data.version.document.artboards.entries.map(
-                (artboard, index) => {
-                    return <Thumbnail artboard={artboard} key={index} />;
-                }
-            )
-        ) : (
-            <div />
-        );
+    const thumbnails = props.data.version.document.artboards.entries.map(
+        (artboard, index) => {
+            return <Thumbnail artboard={artboard} key={index} />;
+        }
+    );
 
     return (
         <div className="document-view">
