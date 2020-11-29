@@ -17,6 +17,12 @@
     --s-topbar-height: 64px;
     --s-spacing-big: 48px;
     --s-spacing-small: 24px;
+
+    /* Times */
+    --t-transition-duration: 0.1s;
+
+    /* z-indexes */
+    --z-overlay: 10;
 }
 
 body {

@@ -5,6 +5,10 @@
 
     display: inline-flex;
     flex-direction: column;
+    transition: opacity var(--t-transition-duration);
+}
+.thumbnail:hover {
+    opacity: 0.8;
 }
 .thumbnail__figure {
     line-height: 1;
