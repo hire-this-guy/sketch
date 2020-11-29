@@ -19,27 +19,34 @@
     display: flex;
     line-height: 0;
 }
+
 .close-icon {
     margin: 26px 24px 27px 29px;
+}
+
+.close:hover .close-icon {
+    stroke-width: 2px;
 }
 
 .artboards-switcher {
     padding-top: 2px;
     color: rgba(0, 0, 0, 0.4);
 }
-.artboard-switcher__next {
+.artboard-switcher__icon--next {
     margin-left: 18px;
     margin-right: 12px;
 }
-.artboard-switcher__prev {
+.artboard-switcher__icon--prev {
     margin-right: 18px;
     margin-left: 12px;
 }
 
-.artboard-switcher__next,
-.artboard-switcher__prev {
+.artboard-switcher__icon {
     position: relative;
     top: 1px;
+}
+.artboard-switcher__link:hover .artboard-switcher__icon:not(.disabled) {
+    stroke-width: 2px;
 }
 
 .artboard-switcher__slash {

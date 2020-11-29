@@ -3,9 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import React from "react";
 import TopBar from "../TopBar/TopBar";
 import "./ArtboardView.css";
-import Close from "../../assets/close.svg";
-import ArrowLeft from "../../assets/arrow-left.svg";
-import ArrowRight from "../../assets/arrow-right.svg";
+import { ReactComponent as Close } from "../../assets/close.svg";
+import { ReactComponent as ArrowLeft } from "../../assets/arrow-left.svg";
+import { ReactComponent as ArrowRight } from "../../assets/arrow-right.svg";
 import FadeInImg from "../FadeInImg/FadeInImg";
 
 interface ArtboardDisplayProps {
@@ -39,44 +39,32 @@ function ArtboardView(props: ArtboardDisplayProps) {
                 corner={
                     <span className="close">
                         <Link to={`/${docId}`}>
-                            <img src={Close} className="close-icon" alt="" />
+                            <Close className="close-icon" />
                         </Link>
                     </span>
                 }
                 left={
                     <span className="artboards-switcher">
                         {prevArtboardName ? (
-                            <Link to={`/${docId}/${prevArtboardName}`}>
-                                <img
-                                    src={ArrowLeft}
-                                    alt=""
-                                    className="artboard-switcher__prev"
-                                />
-                            </Link>
+                            <span className="artboard-switcher__link">
+                                <Link to={`/${docId}/${prevArtboardName}`}>
+                                    <ArrowLeft className="artboard-switcher__icon artboard-switcher__icon--prev" />
+                                </Link>
+                            </span>
                         ) : (
-                            <img
-                                src={ArrowLeft}
-                                className="artboard-switcher__prev disabled"
-                                alt=""
-                            />
+                            <ArrowLeft className="artboard-switcher__icon artboard-switcher__icon--prev disabled" />
                         )}
                         {currentArtboardNumber + 1}
                         <span className="artboard-switcher__slash">/</span>
                         {allArtboardsNumber}
                         {nextArtboardName ? (
-                            <Link to={`/${docId}/${nextArtboardName}`}>
-                                <img
-                                    src={ArrowRight}
-                                    alt=""
-                                    className="artboard-switcher__next"
-                                />
-                            </Link>
+                            <span className="artboard-switcher__link">
+                                <Link to={`/${docId}/${nextArtboardName}`}>
+                                    <ArrowRight className="artboard-switcher__icon artboard-switcher__icon--next" />
+                                </Link>
+                            </span>
                         ) : (
-                            <img
-                                src={ArrowRight}
-                                className="artboard-switcher__next disabled"
-                                alt=""
-                            />
+                            <ArrowRight className="artboard-switcher__icon artboard-switcher__icon--next disabled" />
                         )}
                     </span>
                 }
