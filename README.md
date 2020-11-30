@@ -24,6 +24,6 @@ To change a document simply change shortId/identifier in the url.
 
 # Things that may not be perfect with the design
 
--   My OCD did not allow me to use different fonts in each view like the design, so I took the liberty od standardizing it
+-   My OCD did not allow me to use different fonts in each view like the design, so I took the liberty of standardizing it
 -   I'm on linux now so I suspect text and icons might need some alignment on mac
 -   Hopefully that's everything
