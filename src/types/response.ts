@@ -28,10 +28,10 @@ type DocumnetResponseCommon = {
         };
     };
 };
-type DocumentResponseIdentifier = DocumnetResponseCommon & {
+export type DocumentResponseIdentifier = DocumnetResponseCommon & {
     identifier: string;
 };
-type DocumentResponseShortId = DocumnetResponseCommon & {
+export type DocumentResponseShortId = DocumnetResponseCommon & {
     shortId: string;
 };
 

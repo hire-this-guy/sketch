@@ -7,6 +7,7 @@ import { ReactComponent as Close } from "../../assets/close.svg";
 import { ReactComponent as ArrowLeft } from "../../assets/arrow-left.svg";
 import { ReactComponent as ArrowRight } from "../../assets/arrow-right.svg";
 import FadeInImg from "../FadeInImg/FadeInImg";
+import { testIds } from "./testids";
 
 interface ArtboardDisplayProps {
     data: DocumentResponse;
@@ -38,7 +39,7 @@ function ArtboardView(props: ArtboardDisplayProps) {
             <TopBar
                 corner={
                     <span className="close">
-                        <Link to={`/${docId}`}>
+                        <Link to={`/${docId}`} data-testid={testIds.closeLink}>
                             <Close className="close-icon" />
                         </Link>
                     </span>
@@ -47,19 +48,29 @@ function ArtboardView(props: ArtboardDisplayProps) {
                     <span className="artboards-switcher">
                         {prevArtboardName ? (
                             <span className="artboard-switcher__link">
-                                <Link to={`/${docId}/${prevArtboardName}`}>
+                                <Link
+                                    to={`/${docId}/${prevArtboardName}`}
+                                    data-testid={testIds.prevArtboardLink}
+                                >
                                     <ArrowLeft className="artboard-switcher__icon artboard-switcher__icon--prev" />
                                 </Link>
                             </span>
                         ) : (
                             <ArrowLeft className="artboard-switcher__icon artboard-switcher__icon--prev disabled" />
                         )}
-                        {currentArtboardNumber + 1}
+                        <span data-testid={testIds.currentArtboardNumber}>
+                            {currentArtboardNumber + 1}
+                        </span>
                         <span className="artboard-switcher__slash">/</span>
-                        {allArtboardsNumber}
+                        <span data-testid={testIds.allArtboardsNumber}>
+                            {allArtboardsNumber}
+                        </span>
                         {nextArtboardName ? (
                             <span className="artboard-switcher__link">
-                                <Link to={`/${docId}/${nextArtboardName}`}>
+                                <Link
+                                    to={`/${docId}/${nextArtboardName}`}
+                                    data-testid={testIds.nextArtboardLink}
+                                >
                                     <ArrowRight className="artboard-switcher__icon artboard-switcher__icon--next" />
                                 </Link>
                             </span>
@@ -68,13 +79,18 @@ function ArtboardView(props: ArtboardDisplayProps) {
                         )}
                     </span>
                 }
-                middle={artboardName}
+                middle={
+                    <span data-testid={testIds.currentArtboardName}>
+                        {artboardName}
+                    </span>
+                }
             />
             {currentArtboard && (
                 <FadeInImg
                     className="artboard__img"
                     srcSet={`${currentArtboard.files[0].url} 1x, ${currentArtboard.files[1].url} 2x`}
                     alt={currentArtboard.name}
+                    data-testid={testIds.currentImage}
                 />
             )}
         </div>
