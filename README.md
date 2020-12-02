@@ -8,12 +8,15 @@ The project was created with CRA so the usual npm scripts apply. `npm ci` (in ca
 
 To change a document simply change shortId/identifier in the url.
 
-## Things I would also do (apart from tests)
+I've added tests for artboard view, you can run them with `npm test`.
+
+## Things I would also do ~~(apart from tests)~~
 
 -   Error handling - I naively assumed that the network always works and the request always succeeds (I know, first fallacy of distributed computing)
 -   Dynamic routes - there is no checking if the artboard entered in the addressbar exist in the document
 -   Responsive styles - the app is usable on small screens but could use some polishing here and there
 -   There are relatively few components, so I did not go with an elaborated directory structure (YAGNI)
+-   Loading images - after switching to next artboard previous image is visible untl next one loads - this is not the UX I feel comfortable with
 
 ## Choices I made
 
