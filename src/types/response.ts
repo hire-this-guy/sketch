@@ -18,7 +18,8 @@ export interface Artboard {
     name: string;
 }
 
-type DocumnetResponseCommon = {
+export type DocumentResponse = {
+    identifier: string;
     version: {
         document: {
             artboards: {
@@ -28,13 +29,3 @@ type DocumnetResponseCommon = {
         };
     };
 };
-export type DocumentResponseIdentifier = DocumnetResponseCommon & {
-    identifier: string;
-};
-export type DocumentResponseShortId = DocumnetResponseCommon & {
-    shortId: string;
-};
-
-export type DocumentResponse =
-    | DocumentResponseShortId
-    | DocumentResponseIdentifier;

@@ -5,10 +5,9 @@ import { DocumentResponse } from "../types/response";
 const client = new GraphQLClient(config.endpoint, { headers: {} });
 
 const getQuery = (id: string): string => {
-    const isShortId = id.length < 36;
     return gql`{
-      share(${isShortId ? "shortId" : "id"}: "${id}") {
-        ${isShortId ? "shortId" : "identifier"}
+      share(id: "${id}") {
+        identifier
         version {
           document {
             name

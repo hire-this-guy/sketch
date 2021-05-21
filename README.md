@@ -6,7 +6,7 @@ I hope you're having a great day.
 
 The project was created with CRA so the usual npm scripts apply. `npm ci` (in case of problems I was using node 14.6.0) and `npm start` starts the app on [http://localhost:3000](http://localhost:3000). I had deployed live version but it does not work because of CORS :(
 
-To change a document simply change shortId/identifier in the url.
+To change a document simply change identifier in the url.
 
 I've added tests for artboard view, you can run them with `npm test`.
 
